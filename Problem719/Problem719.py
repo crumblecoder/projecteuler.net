@@ -41,7 +41,7 @@ for i in range (10,32):
                 print (j)
 
 
-
+#
 print (numbersalreadycalculated)
 
 
