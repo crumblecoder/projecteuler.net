@@ -34,16 +34,11 @@
 #9801 is an $S$-number: $\sqrt{9801}=98+0+1$.
 #Further we define $T(N)$ to be the sum of all $S$ numbers $n\le N$. You are given $T(10^4) = 41333$.
 #Find $T(10^{12})$
-numbersalreadycalculated =[[10,11],[1,2]]
-for i in range (10,32):
-        if 
-        for j in str(i):
-                print (j)
 
 
-print (numbersalreadycalculated)
+def CheckifsplitSumIsSquare (n,goal,accumulated):
+    for i in range(1,len(str(n))):
+        CheckifsplitSumIsSquare(int(str(n)[i:]),goal,int(str(n)[:i]))
+        print (str(n)[:i]  + " "  + str(n)[i:]    )
 
-
-
-
-
+CheckifsplitSumIsSquare(8281,91,0)
