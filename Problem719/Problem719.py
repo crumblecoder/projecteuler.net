@@ -36,9 +36,49 @@
 #Find $T(10^{12})$
 
 
-def CheckifsplitSumIsSquare (n,goal,accumulated):
-    for i in range(1,len(str(n))):
-        CheckifsplitSumIsSquare(int(str(n)[i:]),goal,int(str(n)[:i]))
-        print (str(n)[:i]  + " "  + str(n)[i:]    )
 
-CheckifsplitSumIsSquare(8281,91,0)
+#CheckifsplitSumIsSquare(8281,91,0)
+#                                                            -------------------------------   
+#                                                            |                             |
+#                                                         -------------------------        |
+#                                                         |  |                    |        |
+#                                                         v  v                    v        v
+#If I am checking 9801 the enter String of this function (1)(0)(1)(0) means 9*10^(1)+8*10^(0)+0*10^(1)+1*10^(0)
+#and It returns 1000
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+encontrado=False
+def dividir (inicio,strStar,orginal):
+    global encontrado
+    if encontrado:
+        return True
+    if len(strStar) ==1: 
+        return False
+    for i in range (1,len(strStar)):
+        print (inicio+strStar)
+        if encontrado:
+            return True
+        total = (inicio + " " + strStar[:i] +" "+strStar[i:])
+        if check (total) ==(orginal):
+            encontrado = True
+            return True
+        if len(strStar[i:])>1:
+            dividir (inicio+strStar[:i],strStar[i:],orginal)
+                
+def check (texto):
+    return (sum(int(i) for i in  texto.split(" ") if i.isnumeric()))
+
+a=0
+for i in range (1,(10**6)+1):
+    
+    encontrado=False    
+    if (dividir ("",str(i**2),i)):
+        print (str(i**2)+":Sí es:"+str(i) )
+        a = a+(i**2)
+    else:
+        print (str(i**2)+":No es:"+str(i) )
+print (a)
+#if (dividir ("","6724", 82)):
+    
+
+
